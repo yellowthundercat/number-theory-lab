@@ -1,5 +1,6 @@
 #cacalate m such that m^2 + 1 = 0 mod p (p prime number of the form 4k+1)
-
+# => m^2= -1 mod p => computing modular square roots 
+# apply tonelli–shanks algorithm with n=-1 
 def pow(a,b,m):
     result=1
     a%=m
