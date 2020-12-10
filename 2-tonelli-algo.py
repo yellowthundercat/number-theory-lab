@@ -44,11 +44,11 @@ def tonelli(n, p):
     return r
 
 
-n=448
-p=673
+n=-1
+p=2029
 r = tonelli(n, p)
 print("n = %d p = %d" % (n, p))
 print("\t  roots : %d %d" % (r, p - r))
 # m = 992 or m =1037
-print(((r)**2)%p)
+print(((r)**2+1)%p)
 # test 1037^2 + 1 = 0 mod 2029
