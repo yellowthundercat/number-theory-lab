@@ -1,5 +1,7 @@
 from repeated_squaring_1 import repeated_squaring
 from euclidean_extended_4 import extendedEuclid
+from helper.find_factorization import find_factorization
+from chinese_remainder_7 import solveSystemOfCongruences
 import math
 
 
@@ -112,13 +114,26 @@ def modular_sqrt_prime_power(a, p, e):
         result %= current_prime_power
     return result
 
+# find result^2 = a (mod n), n is odd number
+def modular_sqrt_composite(a, n):
+    factor = find_factorization(n)
+    n_list = []
+    a_list = []
+    for prime, expo in factor:
+        a_list.append(modular_sqrt_prime_power(a, prime, expo))
+        n_list.append(prime ** expo)
+    return solveSystemOfCongruences(n_list, a_list)
+
 def unit_test():
     # test prime
     assert (modular_sqrt_prime(13290059, 127)**2) % 127 == 13290059 % 127, 'wrong find modular square root prime'
     # test prime power
     assert (modular_sqrt_prime_power(13290059, 127, 5)**2) % (127**5) == 13290059 % (127**5), \
         'wrong find modular square root prime power'
-
+    # test odd number
+    assert (modular_sqrt_composite(13290059, 127*25) ** 2) % (127*25) == 13290059 % (127*25), 'wrong find modular square root composite'
+    assert (modular_sqrt_composite(448, 673**2) ** 2) % (673 ** 2) == 448 % (673 ** 2), 'wrong find modular square root composite'
+    assert (modular_sqrt_composite(448, 2019 ** 3) ** 2) % (2019 ** 3) == 448 % (2019 ** 3), 'wrong find modular square root composite'
     print('pass unit test modular square root')
 
 
@@ -126,3 +141,7 @@ unit_test()
 
 print(modular_sqrt_prime(13290059, 127))
 print(modular_sqrt_prime_power(13290059, 127, 2))
+
+
+# https://www.wolframalpha.com/
+# PowModList[13290059,1/2,127]

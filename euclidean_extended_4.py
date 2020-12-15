@@ -31,7 +31,7 @@ def unit_test():
     # 37^2 x + 2019^2 y = (37^2,2019^2) => x=735472 y=-247  (a,b)=1
     # x= 735472 is the modular inverse of 37^2 mode 2019^2
     assert extendedEuclid(37**2, 2019**2) == [1, 735472, -247], 'wrong answer'
-    print('pass unit test')
+    print('pass unit test extend euclid')
 
 
 unit_test()
