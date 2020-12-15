@@ -1,21 +1,19 @@
-def findU(a, n):
+from euclidean_extended_4 import extendedEuclid
+from helper.find_factorization import find_factorization
+
+def chineseRemaindering(a, n):
     """
-        Find the solution z of the congruence az = 1 (mod n),
-        where a, n, z is integers, z is positive.
+        Compute: a mod n.
 
-        Inputs a, n.
+        Input a, n integers.
 
-        Outputs z.
+        Returns a mod n.
     """
-    
-    # Initialize z as 0 and increase z and test until az = 1 (mod n):
 
-    z = 0
-    while (True):
-        z += 1
-        if (a*z) % n == 1:
-            return z
-
+    factorization_of_n = find_factorization(n)
+    N = [n_i[0] for n_i in factorization_of_n]
+    A = [a%N[i] for i in range(0, len(N))]
+    return solveSystemOfCongruences(N, A)
 
 def solveSystemOfCongruences(N, A): 
     """
@@ -45,5 +43,13 @@ def solveSystemOfCongruences(N, A):
 
     for i in range(0, len(N)):
         _n = production / N[i]
-        y += A[i] * _n * findU(_n, N[i]) # y = y + a_i*_n*z such that az = 1 (mod n_i) for all i
-    return y % production # x = y (mod production)
+        y += A[i] * _n * extendedEuclid(_n, N[i])[1]  # y = y + a_i*_n*z such that az = 1 (mod n_i) for all i
+    return int(y % production) # x = y (mod production)
+
+def chinese_remaindering_unit_test():
+    assert str(chineseRemaindering(12345,6789)) == '5556', 'wrong chinese remaindering'
+    assert str(chineseRemaindering(56789,54292)) == '2497', 'wrong chinese remaindering'
+    assert str(chineseRemaindering(123456789,123)) == '90', 'wrong chinese remaindering'
+    print('pass unit test chinse remaindering')
+
+chinese_remaindering_unit_test()
