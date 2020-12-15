@@ -15,7 +15,7 @@ def unit_test_repeated_squaring():
     assert repeated_squaring(2018, 2019, 100) == 32, 'Wrong answer'
     # 20182019^20192018 % 12345 = 9601
     assert repeated_squaring(20182019, 20192018, 12345) == 9601, 'Wrong answer'
-    print('pass unit test')
+    print('pass unit test repeated squaring')
 
 
 unit_test_repeated_squaring()

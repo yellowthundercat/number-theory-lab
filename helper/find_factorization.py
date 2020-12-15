@@ -25,7 +25,7 @@ def find_factorization(k):
 def unit_test():
     assert str(find_factorization(6804)) == str([(2, 2), (3, 5), (7, 1)]), 'wrong factorize'
     assert str(find_factorization(2473891725321)) == str([(3, 2), (524287, 2)]), 'wrong factorize'
-    print('unit test factorize pass')
+    print('pass unit test factorize')
 
 unit_test()
 
