@@ -36,3 +36,14 @@ def jacobiCompute(a, n):
         a = n
         n = b
         
+def unit_test():
+    print(jacobiCompute(1983, 2017))
+    assert jacobiCompute(1983, 2017) == -1, 'wrong jacobi'
+    assert jacobiCompute(474993, 1003001) == 1, 'wrong jacobi'
+    assert jacobiCompute(873, 2019) == 0, 'wrong jacobi'
+
+    print('pass unit test jacobi')
+
+unit_test()
+
+# https://adrianstoll.com/number-theory/jacobi.html

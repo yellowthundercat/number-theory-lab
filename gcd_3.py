@@ -11,7 +11,7 @@ def unit_test():
     assert gcd(1234567,234569) == 127, 'Wrong answer'
     # gcd(1234567,56789) = 1
     assert gcd(1234567,56789) == 1, 'Wrong answer'
-    print('pass unit test')
+    print('pass unit test gcd')
 
 unit_test()
 answer=gcd(2021019,1431471)
