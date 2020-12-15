@@ -79,3 +79,7 @@ y_generator = find_generator(13)
 answer_log = find_log(y_generator, 5, 13)
 print(y_generator)
 print(answer_log)
+
+
+# effective fermat: https://www.wolframalpha.com/input/?i=PowersRepresentations%5B252497801%2C+2%2C+2%5D+&fbclid=IwAR0_nx-deyjixcxXVF9euXqHkWXdQM7SW9zKX89aoN_5GFyTmQu6aozFYMs
+#

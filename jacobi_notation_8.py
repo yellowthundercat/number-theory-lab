@@ -29,7 +29,7 @@ def jacobiCompute(a, n):
                 return alpha
             return 0
         h, b = factorize(a)
-        if (h % 2 != 0) and (n % 8 != 1) and (n % 8 != -1):
+        if (h % 2 != 0) and (n % 8 != 1) and (n % 8 != 7):
             alpha = -alpha
         if (b % 4 != 1) and (n % 4 != 1):
             alpha = -alpha
@@ -37,7 +37,6 @@ def jacobiCompute(a, n):
         n = b
         
 def unit_test():
-    print(jacobiCompute(1983, 2017))
     assert jacobiCompute(1983, 2017) == -1, 'wrong jacobi'
     assert jacobiCompute(474993, 1003001) == 1, 'wrong jacobi'
     assert jacobiCompute(873, 2019) == 0, 'wrong jacobi'
